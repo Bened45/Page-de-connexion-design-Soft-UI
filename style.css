@@ -1,0 +1,131 @@
+/* * --- STYLES GÉNÉRAUX ---
+ * On définit les couleurs et la police pour tout le document.
+ * Le fond est un gris très clair, essentiel pour l'effet neumorphic.
+*/
+:root {
+    --background-color: #e0e5ec;
+    --primary-text-color: #3e4a59;
+    --secondary-text-color: #8a99aa;
+    --error-color: #d93025;
+    --light-shadow: rgba(255, 255, 255, 0.7);
+    --dark-shadow: rgba(163, 177, 198, 0.6);
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--background-color);
+    font-family: 'Inter', sans-serif;
+}
+
+/* * --- CONTENEUR PRINCIPAL (LA CARTE) ---
+ * C'est l'élément central. Ses bords arrondis et son ombre
+ * créent l'effet "soft UI". L'ombre est double : une foncée en bas à droite
+ * et une claire en haut à gauche pour simuler la lumière.
+*/
+.login-container {
+    width: 100%;
+    max-width: 350px;
+    padding: 40px;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    box-shadow: 9px 9px 16px var(--dark-shadow), -9px -9px 16px var(--light-shadow);
+    box-sizing: border-box;
+    margin: 20px;
+}
+
+/* * --- TITRE "Login" ---
+*/
+.login-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--primary-text-color);
+    margin-bottom: 35px;
+}
+
+/* * --- GROUPE DE CHAMP (LABEL + INPUT + MESSAGE D'ERREUR) ---
+*/
+.input-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+/* * --- CHAMPS DE SAISIE (Email & Mot de passe) ---
+ * L'astuce ici est l'ombre "inset" (intérieure).
+ * Elle donne l'impression que le champ est creusé dans la carte.
+*/
+.login-input {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-radius: 12px;
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    box-sizing: border-box;
+    box-shadow: inset 6px 6px 12px var(--dark-shadow), inset -6px -6px 12px var(--light-shadow);
+    transition: box-shadow 0.3s ease;
+}
+
+.login-input::placeholder {
+    color: var(--secondary-text-color);
+}
+
+/* * --- MESSAGES D'ERREUR ---
+ * Le message est stylé en rouge et est rendu invisible
+ * par défaut. On le rendra visible avec JavaScript.
+*/
+.error-message {
+    color: var(--error-color);
+    font-size: 13px;
+    padding-top: 6px;
+    height: 15px; /* Hauteur fixe pour éviter que la mise en page ne saute */
+    visibility: hidden; /* Caché par défaut */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.error-message.visible {
+    visibility: visible; /* Rendu visible par JavaScript */
+    opacity: 1;
+}
+
+/* * --- BOUTON DE CONNEXION ---
+ * Le bouton utilise une ombre extérieure normale pour paraître "bombé".
+ * Les états :hover et :active changent l'ombre pour le rendre interactif.
+*/
+.login-button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-text-color);
+    background-color: var(--background-color);
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 6px 6px 12px var(--dark-shadow), -6px -6px 12px var(--light-shadow);
+}
+
+/* Effet au survol */
+.login-button:hover {
+    box-shadow: 4px 4px 8px var(--dark-shadow), -4px -4px 8px var(--light-shadow);
+}
+
+/* Effet au clic : on inverse l'ombre pour un effet "enfoncé" */
+.login-button:active {
+    box-shadow: inset 4px 4px 8px var(--dark-shadow), inset -4px -4px 8px var(--light-shadow);
+    font-size: 17.5px; /* Petit effet de rétrécissement */
+}
