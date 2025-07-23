@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Connexion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Le style est maintenant lié depuis un fichier externe -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- Le formulaire de connexion -->
+        <form id="loginForm" novalidate>
+            <h1 class="login-title">Login</h1>
+
+            <!-- Champ Email -->
+            <div class="input-group">
+                <input type="email" id="email" class="login-input" placeholder="Email" required>
+                <div id="emailError" class="error-message">Please enter a valid email.</div>
+            </div>
+
+            <!-- Champ Mot de passe -->
+            <div class="input-group">
+                <input type="password" id="password" class="login-input" placeholder="Password" required>
+                <div id="passwordError" class="error-message">Password is required.</div>
+            </div>
+
+            <!-- Bouton de soumission -->
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </div>
+ </body>
+</html>
